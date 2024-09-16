@@ -1,0 +1,39 @@
+{
+  "resourceType": "AllergyIntolerance",
+  "patient": {
+    "reference": "Patient/00000000000000"
+  },
+  "category": [
+    "medication"
+  ],
+  "criticality": "low",
+  "code": {
+    "coding": [ {
+      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "code": "236782",
+      "display": "Saccharomyces boulardii"
+    } ],
+    "text": "saccharomyces boulardii lyo"
+  },
+  "note": [ {
+    "id": "12855145",
+    "authorReference": {
+      "reference": "Practitioner/0000000000000",
+      "display": "SYSTEM, SYSTEM Cerner"
+    },
+    "time": "2023-09-05T07:16:15Z",
+    "text": "Added via CheckinAsyst"
+  } ],
+  "reaction": [ {
+    "id": "12855143",
+    "manifestation": [ {
+      "coding": [ {
+        "system": "http://snomed.info/sct",
+        "code": "4386001",
+        "display": "Bronchospasm (finding)"
+      } ],
+      "text": "Bronchospasm"
+    } ],
+    "severity": "mild"
+  } ]
+}

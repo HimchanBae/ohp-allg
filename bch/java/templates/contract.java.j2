@@ -1,0 +1,13 @@
+{% macro capfirst(text) %}{{ text[0]|upper }}{{ text[1:] }}{% endmacro %}
+package {{ classNamespace }}.contracts;
+
+import {{ classNamespace }}.models.{{ capfirst(className) }};
+import org.hyperledger.fabric.contract.annotation.Contract;
+
+
+@Contract(
+    name = "{{ contractName if contractName is defined else className }}"
+)
+public class {{ capfirst(contractName if contractName is defined else className) }}Contract extends BaseContract<{{ capfirst(className) }}> {
+
+}

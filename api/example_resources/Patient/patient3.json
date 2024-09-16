@@ -1,0 +1,21 @@
+{
+  "resourceType": "Patient",
+  "name": [
+    {
+      "family": "Barnard",
+      "given": [ "Travis", "Jerald" ],
+      "prefix": [ "Dr.", "Prof." ]
+    }
+  ],
+  "birthDate": "1983-02-08",
+  "gender": "male",
+  "address": [
+    {
+      "use": "home",
+      "type": "physical",
+      "text": "2 Something Street, Blacktown, NSW",
+      "city": "Blacktown",
+      "state": "NSW"
+    }
+  ]
+}

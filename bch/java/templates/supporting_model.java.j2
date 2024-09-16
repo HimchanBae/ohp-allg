@@ -1,0 +1,44 @@
+{% macro capfirst(text) %}{{ text[0]|upper }}{{ text[1:] }}{% endmacro %}
+package {{ classNamespace }}.models;
+
+import com.owlike.genson.Genson;
+import com.owlike.genson.annotation.JsonProperty;
+import org.hyperledger.fabric.contract.annotation.DataType;
+import org.hyperledger.fabric.contract.annotation.Property;
+import org.hyperledger.fabric.shim.ChaincodeException;
+
+@DataType()
+public class {{ capfirst(className) }} {
+
+{% for prop in properties %}
+  @Property()
+{% if prop.required is defined and prop.required %}
+  @Required()
+{% endif %}
+  private final {{ prop.type }} {{ prop.name }};
+{% endfor %}
+
+{% for prop in properties %}
+  public {{ capfirst(prop.type) }} get{{ capfirst(prop.name) }}() {
+    return {{ prop.name }};
+  }
+{% endfor %}
+
+  public {{ capfirst(className) }}(
+{% for prop in properties %}
+    @JsonProperty("{{ prop.name }}")
+    {{ prop.type }} {{ prop.name }}{% if not loop.last %},{% endif %}
+
+{% endfor %}
+  ) throws ChaincodeException {
+{% for prop in properties %}
+{% if prop.required is defined and prop.required %}
+    if ({{ prop.name }} == null) {
+      throw new ChaincodeException("Missing field - {{ className }}.{{ prop.name }}");
+    }
+{% endif %}
+
+    this.{{ prop.name }} = {{ prop.name }};
+{% endfor %}
+  }
+}

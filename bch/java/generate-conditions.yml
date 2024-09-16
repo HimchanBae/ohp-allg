@@ -1,0 +1,122 @@
+---
+- hosts: 127.0.0.1
+  gather_facts: no
+
+  vars:
+    classNamespace: org.ccode.asset.ohp.allg.bch
+    javaSrcDir: src/main/java/org/ccode/asset/ohp/allg/bch/
+
+  tasks:
+    - name: Abatement Model
+      vars:
+        className: Abatement
+        properties:
+          - name: dateTime
+            type: String
+
+          - name: age
+            type: Integer
+
+          - name: period
+            type: DatePeriod
+
+          - name: range
+            type: String
+
+          - name: string
+            type: String
+      template:
+        src: "templates/{{ item.src }}.j2"
+        dest: "{{ javaSrcDir }}{{ item.dest }}"
+      loop:
+        - src: supporting_model.java
+          dest: models/Abatement.java
+
+
+    - name: Stage Model
+      vars:
+        className: Stage
+        properties:
+          - name: summary
+            type: String
+
+          - name: assessment
+            type: Reference
+
+          - name: type
+            type: String
+      template:
+        src: "templates/{{ item.src }}.j2"
+        dest: "{{ javaSrcDir }}{{ item.dest }}"
+      loop:
+        - src: supporting_model.java
+          dest: models/Stage.java
+
+
+    - name: Condition Contract
+      vars:
+        className: Condition
+        properties:
+          - name: identifier
+            type: "String[]"
+
+          - name: clinicalStatus
+            type: "String"
+            required: true
+            default: '"active"'
+
+          - name: verificationStatus
+            type: "String"
+            required: true
+            default: '"unconfirmed"'
+
+          - name: severity
+            type: String
+            required: true
+            default: '"severe"'
+
+          - name: category
+            type: String
+            required: true
+            default: '"problem-list-item"'
+
+          - name: code
+            type: String
+
+          - name: bodySite
+            type: String
+
+          - name: subject
+            type: Reference
+
+          - name: encounter
+            type: Reference
+
+          - name: onset
+            type: Onset
+
+          - name: abatement
+            type: Abatement
+
+          - name: recordedDate
+            type: String
+
+          - name: participant
+            type: Participant
+
+          - name: Stage
+            type: Stage
+
+          - name: evidence
+            type: String
+
+          - name: note
+            type: String
+      template:
+        src: "templates/{{ item.src }}.j2"
+        dest: "{{ javaSrcDir }}{{ item.dest }}"
+      loop:
+        - src: model.java
+          dest: models/Condition.java
+        - src: contract.java
+          dest: contracts/ConditionContract.java

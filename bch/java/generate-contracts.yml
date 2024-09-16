@@ -1,0 +1,69 @@
+---
+- hosts: 127.0.0.1
+  gather_facts: no
+
+  vars:
+    classNamespace: org.ccode.asset.ohp.allg.bch
+    javaSrcDir: src/main/
+
+  tasks:
+    - name: AllergyIntolerance Contract
+      vars:
+        className: AllergyIntolerance
+        properties:
+          - name: identifier
+            type: "String[]"
+
+          - name: clinicalStatus
+            type: String[]
+            required: true
+            default: '"active"'
+
+          - name: verificationStatus
+            type: String
+            required: true
+
+          - name: type
+            type: String[]
+
+          - name: category
+            type: String
+            required: true
+
+          - name: criticality
+            type: String
+            required: true
+            default: '"low"'
+
+          - name: code
+            type: String
+
+          - name: patient 
+            type: Reference
+
+          - name: encounter
+            type: Reference
+
+          - name: onset
+            type: Onset
+
+          - name: participant
+            type: Participant[]
+            required: true
+            default: 'new Participant[]{ new Participant(null, null, "accepted", null) }'
+
+          - name: recordedDate
+            type: String
+
+          - name: lastOccurrence
+            type: String
+
+          - name: reaction
+            type: Reaction
+
+      template:
+        src: "templates/{{ item.src }}.j2"
+        dest: "{{ javaSrcDir }}{{ item.dest }}"
+      loop:
+        - src: contract.java
+          dest: contracts/AllergyIntoleranceContract.java

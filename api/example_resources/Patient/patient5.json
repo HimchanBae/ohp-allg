@@ -1,0 +1,20 @@
+{
+  "resourceType": "Patient",
+  "name": [
+    {
+      "family": "Cooper",
+      "given": [ "Mary", "Stacy" ]
+    }
+  ],
+  "birthDate": "1994-12-07",
+  "gender": "female",
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "60 Julia Street, Wavell Heights, QLD",
+      "city": "Wavell Heights",
+      "state": "QLD"
+    }
+  ]
+}

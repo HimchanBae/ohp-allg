@@ -1,0 +1,69 @@
+{% macro capfirst(text) %}{{ text[0]|upper }}{{ text[1:] }}{% endmacro %}
+package {{ classNamespace }}.models;
+
+import com.owlike.genson.Genson;
+import com.owlike.genson.annotation.JsonProperty;
+import org.hyperledger.fabric.contract.annotation.DataType;
+import org.hyperledger.fabric.contract.annotation.Property;
+import org.hyperledger.fabric.shim.ChaincodeException;
+
+@DataType()
+public class {{ capfirst(className) }} extends BaseModel {
+
+{% for prop in properties %}
+  @Property()
+{% if prop.required is defined and prop.required %}
+  @Required()
+{% endif %}
+  private final {{ prop.type }} {{ prop.name }};
+{% endfor %}
+
+{% for prop in properties %}
+  public {{ prop.type }} get{{ capfirst(prop.name) }}() {
+    return {{ prop.name }};
+  }
+{% endfor %}
+
+  public {{ capfirst(className) }}(
+    @JsonProperty("primaryIdentifier")
+    String primaryIdentifier,
+    @JsonProperty("dataHash")
+    String dataHash,
+    @JsonProperty("modifiedBy")
+    String modifiedBy,
+
+{% for prop in properties %}
+    @JsonProperty("{{ prop.name }}")
+    {{ prop.type }} {{ prop.name }}{% if not loop.last %},{% endif %}
+
+{% endfor %}
+  ) throws ChaincodeException {
+    super(DocumentType.{{ className | upper }}, primaryIdentifier, dataHash, modifiedBy);
+
+{% for prop in properties %}
+{% if prop.required is defined and prop.required %}
+    if ({{ prop.name }} == null) {
+      throw new ChaincodeException("Missing field - {{ className }}.{{ prop.name }}");
+    }
+{% endif %}
+
+    this.{{ prop.name }} = {{ prop.name }};
+{% endfor %}
+  }
+
+  private {{ capfirst(className) }}() throws ChaincodeException {
+    super(DocumentType.{{ className | upper }}, "ident", "hash", "url://updatedAt");
+
+{% for prop in properties %}
+{% if prop.default is defined %}
+    this.{{ prop.name }} = {{ prop.default }};
+{% else %}
+    this.{{ prop.name }} = null;
+{% endif %}
+{% endfor %}
+  }
+
+  public static String getTemplate() throws ChaincodeException {
+    return (new Genson()).serialize(new {{ capfirst(className) }}());
+  }
+}

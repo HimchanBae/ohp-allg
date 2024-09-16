@@ -1,0 +1,21 @@
+{
+  "resourceType": "Patient",
+  "name": [
+    {
+      "family": "Walker",
+      "given": [ "Daniel" ],
+      "prefix": [ "Mr" ]
+    }
+  ],
+  "birthDate": "1953-12-29",
+  "gender": "male",
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "71 Something Rd, Macquarie Park, NSW",
+      "city": "Macquarie Park",
+      "state": "NSW"
+    }
+  ]
+}
