@@ -37,9 +37,12 @@ const OhpHeader = () => {
             isActive={isSideNavExpanded}
           />
           <Link href="/" passHref legacyBehavior>
-            <HeaderName prefix="IBM">OHP ALLERGY</HeaderName>
+            <HeaderName prefix="IBM">Open Healthcare</HeaderName>
           </Link>
           <HeaderNavigation aria-label="Carbon Tutorial">
+            <Link href="/login" passHref legacyBehavior>
+              <HeaderMenuItem>Login</HeaderMenuItem>
+            </Link>
             <Link href="/appointment" passHref legacyBehavior>
               <HeaderMenuItem>Appointment</HeaderMenuItem>
             </Link>
@@ -50,6 +53,9 @@ const OhpHeader = () => {
             isPersistent={false}>
             <SideNavItems>
               <HeaderSideNavItems>
+                <Link href="/login" passHref legacyBehavior>
+                  <HeaderMenuItem>Login</HeaderMenuItem>
+                </Link>
                 <Link href="/appointment" passHref legacyBehavior>
                   <HeaderMenuItem>Appointment</HeaderMenuItem>
                 </Link>

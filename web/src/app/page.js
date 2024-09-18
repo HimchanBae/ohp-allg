@@ -1,6 +1,6 @@
 'use client';
-import LoginPage from './pages/login/page';
+import LandingPage from './landing/page';
 
 export default function Page() {
-  return <LoginPage />;
+  return <LandingPage />;
 }

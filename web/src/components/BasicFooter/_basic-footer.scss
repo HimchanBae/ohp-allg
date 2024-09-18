@@ -13,13 +13,13 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1327px; /* 최대 너비 설정 */
-  padding: 0 $spacing-05; /* 좌우 여백 추가 */
+  max-width: 1440px;
+  padding: 0 $spacing-05;
 }
 
 .footer-content nav {
   display: flex;
-  gap: $spacing-05; /* 각 링크 간격 */
+  gap: $spacing-05;
 }
 
 .footer-content nav a {

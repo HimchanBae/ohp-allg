@@ -1,10 +1,12 @@
 @use '@carbon/react';
 @use '@carbon/react/scss/breakpoint' as *;
+@use '@carbon/react/scss/colors' as *;
 
 @use '@/components/BasicHeader/basic-header';
 @use '@/components/BasicFooter/basic-footer';
 
-@use '@/app/pages/login/login-page';
+@use '@/app/login/login-page';
+@use '@/app/landing/landing-page';
 
 html,
 body {
@@ -35,7 +37,7 @@ body {
 
 /// Padding was introduced in 10.3.0, needs an option to let grid set the viewport gutter
 .cds--content {
-  max-width: 1327px;
+  max-width: 1440px;
   height: auto;
   margin: 0 auto;
   background: var(--cds-background);

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import {
   Button,
@@ -44,8 +46,7 @@ export default function LoginPage() {
                 type="submit"
                 kind="primary"
                 size="large-productive"
-                renderIcon={ArrowRight}
-              >
+                renderIcon={ArrowRight}>
                 Continue
               </Button>
             </Form>
@@ -77,8 +78,7 @@ export default function LoginPage() {
               renderIcon={ArrowRight}
               onClick={() =>
                 (window.location.href = 'https://www.ibm.com/account/reg')
-              }
-            >
+              }>
               Create an IBMid
             </Button>
             <div className="forgot-section">
@@ -94,8 +94,7 @@ export default function LoginPage() {
       <Column lg={9} md={4} sm={4} className="right-column">
         <img
           src="/images/login_image.gif"
-          alt="CODB 2024 ambient animation loop"
-        ></img>
+          alt="CODB 2024 ambient animation loop"></img>
       </Column>
     </Grid>
   );
