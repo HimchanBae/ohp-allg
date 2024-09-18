@@ -11,10 +11,6 @@ const allergyIntoleranceData = [
     category: 'food | medication | environment | biologic',
     criticality: 'low | high | unable-to-assess',
     code: 'A code identifying the specific type, such as a particular food or medication', // It might be better to change it to 'name' or 'display'
-    patient: {
-      reference: 'Patient/53373',
-      type: Patient,
-    },
     /* 
     encounter : too complex for MVP
     onsetAge, onsetRange, onsetString : 

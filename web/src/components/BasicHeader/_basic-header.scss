@@ -19,6 +19,16 @@
   padding: 0;
 }
 
+.notification-menu {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000;
+}
+
 @media (max-width: 320px) {
   .action-icons {
     display: none;
