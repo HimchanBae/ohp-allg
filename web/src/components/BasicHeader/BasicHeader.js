@@ -46,6 +46,9 @@ const OhpHeader = () => {
             <Link href="/appointment" passHref legacyBehavior>
               <HeaderMenuItem>Appointment</HeaderMenuItem>
             </Link>
+            <Link href="/allergy" passHref legacyBehavior>
+              <HeaderMenuItem>Allergy</HeaderMenuItem>
+            </Link>
           </HeaderNavigation>
           <SideNav
             aria-label="Side navigation"
@@ -58,6 +61,9 @@ const OhpHeader = () => {
                 </Link>
                 <Link href="/appointment" passHref legacyBehavior>
                   <HeaderMenuItem>Appointment</HeaderMenuItem>
+                </Link>
+                <Link href="/allergy" passHref legacyBehavior>
+                  <HeaderMenuItem>Allergy</HeaderMenuItem>
                 </Link>
               </HeaderSideNavItems>
             </SideNavItems>

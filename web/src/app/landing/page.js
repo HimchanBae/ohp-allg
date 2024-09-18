@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Grid, Column } from '@carbon/react';
+import { Grid, Column, Button } from '@carbon/react';
+import { ArrowRight } from '@carbon/icons-react';
 
 export default function LandingPage() {
   return (
@@ -27,6 +28,20 @@ export default function LandingPage() {
             workflows, improves provider collaboration, and enables seamless
             access to digital health records for better care outcomes.
           </p>
+          <Button
+            className="landing-button"
+            kind="primary"
+            size="large-productive"
+            renderIcon={ArrowRight}>
+            I don't know Button
+          </Button>
+          <Button
+            className="landing-button"
+            kind="tertiary"
+            size="large-productive"
+            renderIcon={ArrowRight}>
+            I know Button
+          </Button>
         </div>
       </Column>
 
