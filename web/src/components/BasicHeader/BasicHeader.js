@@ -40,8 +40,7 @@ const OhpHeader = () => (
         <SideNav
           aria-label="Side navigation"
           expanded={isSideNavExpanded}
-          isPersistent={false}
-        >
+          isPersistent={false}>
           <SideNavItems>
             <HeaderSideNavItems>
               <Link href="/" passHref legacyBehavior>
@@ -54,15 +53,13 @@ const OhpHeader = () => (
           <HeaderGlobalAction
             aria-label="Notifications"
             tooltipAlignment="center"
-            className="action-icons"
-          >
+            className="action-icons">
             <Notification size={20} />
           </HeaderGlobalAction>
           <HeaderGlobalAction
             aria-label="User Avatar"
             tooltipAlignment="center"
-            className="action-icons"
-          >
+            className="action-icons">
             <UserAvatar size={20} />
           </HeaderGlobalAction>
           <HeaderGlobalAction aria-label="App Switcher" tooltipAlignment="end">
