@@ -25,6 +25,7 @@
 .footer-content nav a {
   color: $text-helper;
   text-decoration: none;
+  font-size: 0.875rem;
 }
 
 .footer-content nav a:hover {
@@ -35,6 +36,7 @@
 .footer-content p {
   color: $text-helper;
   margin: 0;
+  font-size: 0.875rem;
 }
 
 @media (max-width: 1057px) {
