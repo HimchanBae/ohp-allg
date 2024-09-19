@@ -46,6 +46,9 @@ const OhpHeader = () => {
             <Link href="/appointment" passHref legacyBehavior>
               <HeaderMenuItem>Appointment</HeaderMenuItem>
             </Link>
+            <Link href="/information" passHref legacyBehavior>
+              <HeaderMenuItem>Information</HeaderMenuItem>
+            </Link>
             <Link href="/allergy" passHref legacyBehavior>
               <HeaderMenuItem>Allergy</HeaderMenuItem>
             </Link>
@@ -61,6 +64,9 @@ const OhpHeader = () => {
                 </Link>
                 <Link href="/appointment" passHref legacyBehavior>
                   <HeaderMenuItem>Appointment</HeaderMenuItem>
+                </Link>
+                <Link href="/information" passHref legacyBehavior>
+                  <HeaderMenuItem>Information</HeaderMenuItem>
                 </Link>
                 <Link href="/allergy" passHref legacyBehavior>
                   <HeaderMenuItem>Allergy</HeaderMenuItem>
